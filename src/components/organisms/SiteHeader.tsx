@@ -29,6 +29,11 @@ export function SiteHeader() {
                   Attractions
                 </Link>
               </li>
+              <li>
+                <Link activeProps={{ className: 'menu-active' }} to="/food">
+                  Food
+                </Link>
+              </li>
             </ul>
           </nav>
           <ThemeToggle />

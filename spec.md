@@ -3,12 +3,13 @@
 ## Project specification
 
 Visit Poland is a responsive travel discovery application that introduces
-visitors to Polish destinations, landmarks, and natural attractions.
+visitors to Polish destinations, landmarks, natural attractions, and cuisine.
 
 ## Goals
 
 - Showcase destinations across Poland.
 - Help visitors discover cultural and natural attractions.
+- Introduce visitors to traditional Polish dishes and regional food culture.
 - Provide clear navigation between the main areas of the application.
 - Deliver an accessible, responsive, and modern user experience.
 - Keep the interface maintainable through reusable UI components.
@@ -53,6 +54,7 @@ Status colours remain semantically distinct for accessibility.
 | `/` | Home | Introduces the application and links to the main collections. |
 | `/destinations` | Destinations | Displays a collection of Polish cities and regions. |
 | `/attractions` | Attractions | Displays notable landmarks and natural attractions. |
+| `/food` | Food | Presents traditional Polish dishes with descriptions and photography. |
 | Any unmatched path | Not found | Explains that the requested page does not exist and links home. |
 
 Route declarations live in `src/routes`. Route files should contain only route
@@ -83,13 +85,14 @@ organisms, templates, or pages. Current examples are `Eyebrow` and `ActionLink`.
 ### Molecules
 
 Molecules combine atoms or native elements into a focused unit. Current examples
-are `PageHeader`, `DestinationCard`, and `AttractionRow`.
+are `PageHeader`, `DestinationCard`, `FoodCard`, and `AttractionRow`.
 
 ### Organisms
 
 Organisms form recognizable page sections and may compose atoms and molecules.
 Current examples include the site header and footer, hero, introduction,
 destination grid, and attraction list.
+The food grid follows the same collection pattern for Polish cuisine.
 
 ### Templates
 

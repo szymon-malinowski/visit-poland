@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 
 type ActionLinkProps = {
   children: string
-  to: '/' | '/attractions' | '/destinations'
+  to: '/' | '/attractions' | '/destinations' | '/food'
   variant?: 'button' | 'text'
 }
 

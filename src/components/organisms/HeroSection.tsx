@@ -3,7 +3,7 @@ import { Eyebrow } from '../atoms/Eyebrow'
 
 export function HeroSection() {
   return (
-    <section className="hero relative min-h-[42rem] overflow-hidden bg-base-300">
+    <section className="hero relative min-h-168 overflow-hidden bg-base-300">
       <img
         className="absolute inset-0 size-full object-cover object-center"
         src="/images/warsaw-hero.png"

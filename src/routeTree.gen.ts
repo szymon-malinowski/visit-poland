@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as FoodRouteImport } from './routes/food'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as AttractionsRouteImport } from './routes/attractions'
 import { Route as IndexRouteImport } from './routes/index'
 
+const FoodRoute = FoodRouteImport.update({
+  id: '/food',
+  path: '/food',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DestinationsRoute = DestinationsRouteImport.update({
   id: '/destinations',
   path: '/destinations',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/attractions': typeof AttractionsRoute
   '/destinations': typeof DestinationsRoute
+  '/food': typeof FoodRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/attractions': typeof AttractionsRoute
   '/destinations': typeof DestinationsRoute
+  '/food': typeof FoodRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/attractions': typeof AttractionsRoute
   '/destinations': typeof DestinationsRoute
+  '/food': typeof FoodRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/attractions' | '/destinations'
+  fullPaths: '/' | '/attractions' | '/destinations' | '/food'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/attractions' | '/destinations'
-  id: '__root__' | '/' | '/attractions' | '/destinations'
+  to: '/' | '/attractions' | '/destinations' | '/food'
+  id: '__root__' | '/' | '/attractions' | '/destinations' | '/food'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AttractionsRoute: typeof AttractionsRoute
   DestinationsRoute: typeof DestinationsRoute
+  FoodRoute: typeof FoodRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/food': {
+      id: '/food'
+      path: '/food'
+      fullPath: '/food'
+      preLoaderRoute: typeof FoodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/destinations': {
       id: '/destinations'
       path: '/destinations'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AttractionsRoute: AttractionsRoute,
   DestinationsRoute: DestinationsRoute,
+  FoodRoute: FoodRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
