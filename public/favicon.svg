@@ -7,7 +7,7 @@
   </defs>
   <g clip-path="url(#flag-shape)">
     <path fill="#fff" d="M4 10h56v22H4z" />
-    <path fill="#dc143c" d="M4 32h56v22H4z" />
+    <path fill="#dc2626" d="M4 32h56v22H4z" />
   </g>
   <rect
     x="4.75"

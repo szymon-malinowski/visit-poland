@@ -40,6 +40,12 @@ All colours should use semantic DaisyUI theme tokens such as `primary`,
 `secondary`, `base-100`, `base-200`, `base-300`, and `base-content` where
 possible. This keeps contrast and theme switching consistent.
 
+The visual identity follows Poland's national colours. Both DaisyUI themes use
+red (`#DC2626`) for primary and secondary actions, headings, active states, and
+accents. The light theme uses white as its main surface, while the dark theme
+uses neutral, subtly warm surfaces with the same red identity.
+Status colours remain semantically distinct for accessibility.
+
 ## Routes
 
 | Path | Page | Purpose |

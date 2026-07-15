@@ -14,7 +14,7 @@ export function ActionLink({
   const className =
     variant === 'button'
       ? 'btn btn-primary'
-      : 'link link-primary link-hover font-semibold'
+      : 'link link-hover font-semibold text-white'
 
   return (
     <Link className={className} to={to}>
