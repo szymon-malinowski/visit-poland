@@ -1,6 +1,8 @@
 export type Destination = {
   name: string
   description: string
+  image: string
+  imageAlt: string
 }
 
 type DestinationCardProps = {
@@ -13,7 +15,15 @@ export function DestinationCard({
   index,
 }: DestinationCardProps) {
   return (
-    <article className="card min-h-64 border border-base-300 bg-base-100 shadow-sm transition-shadow hover:shadow-md">
+    <article className="card overflow-hidden border border-base-300 bg-base-100 shadow-sm transition-shadow hover:shadow-md">
+      <figure className="h-52">
+        <img
+          className="size-full object-cover transition-transform duration-500 hover:scale-105"
+          src={destination.image}
+          alt={destination.imageAlt}
+          loading="lazy"
+        />
+      </figure>
       <div className="card-body">
         <span className="badge badge-secondary badge-outline">
           {String(index + 1).padStart(2, '0')}
