@@ -44,7 +44,7 @@ const destinations: Destination[] = [
 export function DestinationsPage() {
   return (
     <CollectionPageTemplate
-      description="Find the Polish city or region that belongs on your itinerary."
+      description="Find the Polish city or region for your next trip."
       eyebrow="Places to go"
       title="Destinations"
     >
