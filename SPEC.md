@@ -55,6 +55,7 @@ Status colours remain semantically distinct for accessibility.
 | `/destinations` | Destinations | Displays a collection of Polish cities and regions. |
 | `/attractions` | Attractions | Displays notable landmarks and natural attractions. |
 | `/food` | Food | Presents traditional Polish dishes with descriptions and photography. |
+| `/impressum` | Impressum | Provides legal information about the website and its content. |
 | Any unmatched path | Not found | Explains that the requested page does not exist and links home. |
 
 Route declarations live in `src/routes`. Route files should contain only route
