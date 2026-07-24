@@ -2,8 +2,8 @@
 
 ## Project overview
 
-Visit Poland is a responsive travel discovery application built with React 19,
-TypeScript, Vite, TanStack Router, Tailwind CSS 4, and DaisyUI 5. Read
+Visit Poland is a mobile-first, responsive travel discovery application built
+with React 19, TypeScript, Vite, TanStack Router, Tailwind CSS 4, and DaisyUI 5. Read
 `SPEC.md` before making changes; it is the source of truth for product,
 architecture, styling, routing, and accessibility requirements.
 
@@ -14,13 +14,15 @@ Run commands from the repository root:
 ```bash
 npm install       # install dependencies
 npm run dev       # start the Vite development server
+npm test          # run the Playwright end-to-end test suite
+npm run test:mobile # run mobile viewport tests
 npm run lint      # lint the repository
 npm run build     # type-check and create a production build
 npm run preview   # preview the production build
 ```
 
-There is currently no automated test script. Before considering a change
-complete, run both `npm run lint` and `npm run build`.
+Before considering a change complete, run `npm test`, `npm run lint`, and
+`npm run build`.
 
 ## Repository structure
 
@@ -37,6 +39,7 @@ src/
 ├── main.tsx
 └── routeTree.gen.ts
 public/images/
+__tests__/
 ```
 
 Follow the Atomic Design dependency direction:
@@ -65,6 +68,15 @@ Pages own route-specific data and composition; templates own reusable layouts.
 
 ## Styling
 
+- Treat mobile as the default layout. Write unprefixed Tailwind utilities for
+  the 320 px experience, then use `sm:`, `md:`, `lg:`, and larger breakpoints
+  only to progressively enhance the layout as space becomes available.
+- Do not build a desktop layout first and override it for smaller screens.
+  Content order, navigation, interactions, and component composition must work
+  without breakpoint-specific styles.
+- Prefer fluid widths, wrapping, and responsive grids over fixed dimensions.
+  Add a fixed width or height only when the design requires it and it cannot
+  cause horizontal scrolling or clipped content on mobile.
 - Use DaisyUI primitives such as `btn`, `card`, `navbar`, `menu`, `badge`,
   `list`, `hero`, and `footer` whenever they fit the UI.
 - Use Tailwind utilities for layout, spacing, typography, responsiveness, and
@@ -77,8 +89,8 @@ Pages own route-specific data and composition; templates own reusable layouts.
   the requirement.
 - Preserve the red-and-white Polish visual identity and verify both light and
   dark themes.
-- Design from a 320 px mobile width upward and check responsive behavior at
-  mobile and desktop sizes.
+- Validate every UI change at 320 px before checking progressively wider mobile,
+  tablet, and desktop sizes.
 
 ## Accessibility and UX
 
@@ -100,6 +112,6 @@ Pages own route-specific data and composition; templates own reusable layouts.
 - Update `SPEC.md` when intentionally changing documented product behavior or
   architectural conventions.
 - For UI changes, manually inspect the affected routes in the browser in both
-  themes and at representative mobile and desktop widths.
+  themes at 320 px first, followed by representative tablet and desktop widths.
 - In the final summary, state what changed and report the results of lint and
   build checks, including any check that could not be run.
